@@ -1,4 +1,6 @@
-const reset = `
+import {css} from "@emotion/react";
+
+const reset = css`
   *,
   *::before,
   *::after {
