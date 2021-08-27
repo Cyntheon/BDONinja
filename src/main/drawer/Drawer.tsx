@@ -16,7 +16,7 @@ const Drawer = ({drawerOpen, setDrawerOpen}: Props) => {
       open={drawerOpen}
       css={css`
         .MuiDrawer-paper {
-          width: 250px;
+          width: 240px;
         }
       `}
     >
