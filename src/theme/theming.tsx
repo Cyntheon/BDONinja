@@ -2,7 +2,7 @@ import {createTheme, CssBaseline} from "@material-ui/core";
 import {pink} from "@material-ui/core/colors";
 import {ThemeProvider} from "@emotion/react";
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     type: "dark",
     primary: {
