@@ -1,12 +1,14 @@
 import {AppProps} from "next/app";
-import {Global} from "@emotion/react";
-import reset from "styles/reset";
+import {CustomThemeProvider} from "theme/theming";
+import {CssBaseline} from "@material-ui/core";
 
 const CustomApp = ({Component, pageProps}: AppProps) => {
   return (
     <>
-      <Global styles={reset} />
-      <Component {...pageProps} />
+      <CssBaseline />
+      <CustomThemeProvider>
+        <Component {...pageProps} />
+      </CustomThemeProvider>
     </>
   );
 };
