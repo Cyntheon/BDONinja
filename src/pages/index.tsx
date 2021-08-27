@@ -2,13 +2,13 @@ import {css} from "@emotion/react";
 
 const Index = () => {
   return (
-    <div
+    <h1
       css={css`
-        background-color: aqua;    
+        font-family: "Noto Sans", sans-serif;
       `}
     >
       Testing
-    </div>
+    </h1>
   );
 };
 
