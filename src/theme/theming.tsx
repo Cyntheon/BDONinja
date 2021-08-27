@@ -1,4 +1,4 @@
-import {createTheme} from "@material-ui/core";
+import {createTheme, CssBaseline} from "@material-ui/core";
 import {pink} from "@material-ui/core/colors";
 import {ThemeProvider} from "@emotion/react";
 
@@ -17,6 +17,7 @@ const theme = createTheme({
 export const CustomThemeProvider = ({children}: {children: any}) => {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       {children}
     </ThemeProvider>
   );
