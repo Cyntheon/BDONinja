@@ -7,18 +7,17 @@ import Document, {
 } from "next/document";
 import {ServerStyleSheets} from "@material-ui/core";
 import React from "react";
-import {theme} from "theme/theming";
+import theme from "style/theme";
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheets = new ServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
 
-    ctx.renderPage = () => {
-      return originalRenderPage({
+    ctx.renderPage = () =>
+      originalRenderPage({
         enhanceApp: (App) => (props) => sheets.collect(<App {...props} />)
       });
-    };
 
     const initialProps = await Document.getInitialProps(ctx);
 
