@@ -1,14 +1,13 @@
-import {css} from "@emotion/react";
+import {Button} from "@material-ui/core";
 
 const Index = () => {
   return (
-    <h1
-      css={css`
-        font-family: "Noto Sans", sans-serif;
-      `}
+    <Button
+      size="large"
+      color="secondary"
     >
-      Testing
-    </h1>
+      Get Started
+    </Button>
   );
 };
 
