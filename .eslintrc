@@ -7,6 +7,8 @@
       "error",
       "as-needed"
     ],
+    "spaced-comment": "off",
+    "capitalized-comments": "off",
     "@emotion/pkg-renaming": "error",
     "@emotion/jsx-import": "off",
     "@emotion/no-vanilla": "error",
