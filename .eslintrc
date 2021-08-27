@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "@cyntheon/next",
+  "rules": {
+    "no-undef": "off",
+    "quote-props": [
+      "error",
+      "as-needed"
+    ]
+  }
 }
