@@ -5,6 +5,7 @@ import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
 import {Global} from "@emotion/react";
 import theme from "style/theme";
 import reset from "style/reset";
+import Main from "main/Main";
 
 const CustomApp = ({Component, pageProps}: AppProps) => {
   useEffect(() => {
@@ -26,7 +27,9 @@ const CustomApp = ({Component, pageProps}: AppProps) => {
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <Global styles={reset} />
-        <Component {...pageProps} />
+        <Main>
+          <Component {...pageProps} />
+        </Main>
       </MuiThemeProvider>
     </>
   );
