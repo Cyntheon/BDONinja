@@ -1,4 +1,5 @@
-import {AppBar, Button, Toolbar} from "@material-ui/core";
+import {AppBar, IconButton, Toolbar} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 
 interface Props {
   toggleDrawerOpen: () => void;
@@ -8,7 +9,9 @@ const Topbar = ({toggleDrawerOpen}: Props) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Button onClick={toggleDrawerOpen}>Drawer</Button>
+        <IconButton onClick={toggleDrawerOpen}>
+          <MenuIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
