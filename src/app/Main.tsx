@@ -1,7 +1,7 @@
 import {Container} from "@material-ui/core";
-import Topbar from "main/topbar/Topbar";
+import Topbar from "app/topbar/Topbar";
 import {useCallback, useState} from "react";
-import Drawer from "main/drawer/Drawer";
+import Drawer from "app/drawer/Drawer";
 import {css} from "@emotion/react";
 
 const Main = ({children}: {children: any}) => {
