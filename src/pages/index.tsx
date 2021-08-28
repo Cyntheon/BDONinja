@@ -3,7 +3,7 @@ import {css} from "@emotion/react";
 
 const Index = () => {
   return (
-    <div>
+    <>
       <Typography variant="h1">
         Welcome to BDO Ninja
       </Typography>
@@ -18,7 +18,7 @@ const Index = () => {
       >
         Get Started
       </Button>
-    </div>
+    </>
   );
 };
 
