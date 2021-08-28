@@ -16,6 +16,7 @@ const Main = ({children}: {children: any}) => {
       <Drawer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
       <Topbar toggleDrawerOpen={toggleDrawerOpen} />
       <Container
+        component="main"
         disableGutters
         maxWidth={false}
         css={css`
