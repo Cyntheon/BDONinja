@@ -1,6 +1,6 @@
 import {AppProps} from "next/app";
 import Head from "next/head";
-import Main from "main/Main";
+import Main from "app/Main";
 import GlobalStyling from "style/GlobalStyling";
 
 const CustomApp = ({Component, pageProps}: AppProps) => {
