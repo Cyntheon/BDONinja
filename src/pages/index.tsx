@@ -7,7 +7,7 @@ const Index = () => {
     <Card>
       <CardContent>
         <Typography>
-          <Link href="/cooking/cookTime">
+          <Link href="/cooking/cookTime" passHref>
             <MuiLink href="">
               Cook Time Calculator
             </MuiLink>
