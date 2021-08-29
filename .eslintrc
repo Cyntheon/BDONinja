@@ -1,5 +1,9 @@
 {
-  "extends": "@cyntheon/next",
+  "extends": [
+    "@cyntheon/next",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "plugins": ["@emotion"],
   "rules": {
     "no-undef": "off",
@@ -9,6 +13,7 @@
     ],
     "spaced-comment": "off",
     "capitalized-comments": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@emotion/pkg-renaming": "error",
     "@emotion/jsx-import": "off",
     "@emotion/no-vanilla": "error",
