@@ -46,7 +46,7 @@ const DrawerList = () => {
             <Link
               href={path}
               passHref
-              key="path"
+              key={path + name}
             >
               <ListItem button>
                 <ListItemIcon>
