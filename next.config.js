@@ -1,10 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true" &&
-      process.env.NODE_ENV !== "production"
+  enabled: process.env.ANALYZE === "true"
 });
 
 /** @type {import('next').NextConfig} */
-module.exports = withBundleAnalyzer({
+const config = {
+  // images: {
+  //   loader: "imgix",
+  //   path: ""
+  // },
   reactStrictMode: true
-});
+};
+
+module.exports = process.env.NODE_ENV === "production" ?
+  config :
+  withBundleAnalyzer(config);
+
