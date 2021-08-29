@@ -58,31 +58,19 @@ const CookTime = () => {
 
   const toggleChecked = useCallback((key: TimeReducer) => {
     const keyCategory = timeReducers[key].category;
-    console.log("Toggle called");
 
     setCheckboxState((oldState) => {
-      console.log("Set new state");
-      console.log("Old State", oldState);
       return Object.entries(oldState).reduce(
         (accumulator, [entryKey, entryVal]) => {
-          console.log(`---${entryKey}---`);
-
           if (entryKey === key) {
-            console.log(!entryVal);
-            console.log("------------------------");
             return {...accumulator, [entryKey]: !entryVal};
           }
 
           const entryCategory = timeReducers[entryKey as TimeReducer].category;
-
           if (keyCategory && keyCategory === entryCategory) {
-            console.log(false);
-            console.log("------------------------");
             return {...accumulator, [entryKey]: false};
           }
 
-          console.log(entryVal);
-          console.log("------------------------");
           return {...accumulator, [entryKey]: entryVal};
         },
         {}
