@@ -39,12 +39,6 @@ const CustomApp = ({Component, pageProps}: AppProps) => {
               content: "portrait"
             }
           ]}
-          additionalLinkTags={[
-            {
-              href: "https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&display=swap",
-              rel: "stylesheet"
-            }
-          ]}
         />
         <Component {...pageProps} />
       </Main>
