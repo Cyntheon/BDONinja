@@ -12,6 +12,7 @@ import {css} from "@emotion/react";
 import {Timer} from "@material-ui/icons";
 import React from "react";
 import NavCardBanner from "navCard/NavCardBanner";
+import ShareButton from "share/ShareButton";
 
 interface Props {
   title: string;
@@ -44,7 +45,9 @@ const NavCard = ({title, image, path}: Props) => {
           </CardActionArea>
         </MuiLink>
       </Link>
-      <CardActions />
+      <CardActions>
+        <ShareButton />
+      </CardActions>
     </Paper>
   );
 };
