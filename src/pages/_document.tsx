@@ -7,7 +7,6 @@ import Document, {
 } from "next/document";
 import {ServerStyleSheets} from "@material-ui/core/styles";
 import React from "react";
-import theme from "style/theme";
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -33,16 +32,7 @@ export default class CustomDocument extends Document {
   render() {
     return (
       <Html lang="en-US">
-        <Head>
-          <meta
-            name="theme-color"
-            content={theme.palette.primary.main}
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

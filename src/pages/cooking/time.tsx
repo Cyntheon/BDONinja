@@ -9,6 +9,7 @@ import {
   Typography
 } from "@material-ui/core";
 import {useCallback, useMemo, useState} from "react";
+import {NextSeo} from "next-seo";
 
 const isNumber = (k: unknown) => {
   return typeof k === "number";
@@ -71,7 +72,7 @@ const baseDropdownState = Object.entries(cookTimeModifiers).reduce(
 
 type CookTimeModifier = keyof typeof cookTimeModifiers;
 
-const CookTime = () => {
+const CookingTime = () => {
   const [checkboxState, setCheckboxState] =
     useState<{[s in CookTimeModifier]: boolean}>(baseCheckboxState);
 
@@ -166,6 +167,14 @@ const CookTime = () => {
 
   return (
     <>
+      <NextSeo
+        title="Cooking Time Calculator"
+        description="A simple calculator for your BDO cooking time"
+        openGraph={{
+          title: "Cooking Time Calculator",
+          description: "A simple calculator for your BDO cooking time"
+        }}
+      />
       <Typography variant="h3">
         Cooking Time:
         <Typography variant="inherit" color="secondary">
@@ -180,4 +189,4 @@ const CookTime = () => {
   );
 };
 
-export default CookTime;
+export default CookingTime;
