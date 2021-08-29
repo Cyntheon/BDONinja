@@ -16,7 +16,10 @@ interface Props {
 
 const ShareButtonPopover = ({anchorElement, handleClose}: Props) => {
   return (
-    <Backdrop open={!!anchorElement}>
+    <Backdrop
+      // open={!!anchorElement}
+      open={false}
+    >
       <Popover
         open={!!anchorElement}
         onClose={handleClose}
