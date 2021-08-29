@@ -20,7 +20,7 @@ const pathList = [
   ],
   [
     {
-      path: "/cooking/time",
+      path: "/cooking/timeCalculator",
       name: "Cooking Time Calculator",
       icon: Timer
     }

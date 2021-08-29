@@ -1,18 +1,9 @@
-import {
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Icon,
-  IconButton,
-  Link as MuiLink,
-  Paper,
-  Typography
-} from "@material-ui/core";
-import Link from "next/link";
+import {Typography} from "@material-ui/core";
 import {NextSeo} from "next-seo";
-import {Share, Timer} from "@material-ui/icons";
 import {css} from "@emotion/react";
+import React from "react";
+import NavCard from "navCard/NavCard";
+import BdoNightSky from "../../public/bdo_night_sky.jpg";
 
 const Index = () => {
   return (
@@ -35,38 +26,11 @@ const Index = () => {
       >
         Welcome to BDO Ninja!
       </Typography>
-      <Paper elevation={3}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt=""
-            height="250"
-            image="https://live.staticflickr.com/4758/39260746395_6a32e97eb8_b.jpg"
-            title="Cooking Time Calculator"
-          />
-          <CardContent>
-            <Link href="/cooking/time" passHref>
-              <MuiLink href="" color="primary">
-                <Typography variant="h4" component="h2">
-                  <Icon
-                    css={css`
-                      margin-right: 8px;
-                    `}
-                  >
-                    <Timer color="primary" />
-                  </Icon>
-                  Cooking Time Calculator
-                </Typography>
-              </MuiLink>
-            </Link>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <IconButton size="small" color="primary">
-            <Share />
-          </IconButton>
-        </CardActions>
-      </Paper>
+      <NavCard
+        title="Cooking Time Calculator"
+        image={BdoNightSky}
+        path="/cooking/timeCalculator"
+      />
     </>
   );
 };
