@@ -25,6 +25,12 @@ const Main = ({children}: {children: any}) => {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            
+            padding: 16px 0;
+            
+            @media (min-width: 600px) {
+              padding: 24px 0;
+            }
           }
         `}
       >
