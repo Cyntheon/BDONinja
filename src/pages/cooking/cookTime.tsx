@@ -1,114 +1,170 @@
 import {
-  Box,
-  Checkbox,
+  Checkbox, FormControl,
   FormControlLabel,
-  FormGroup,
+  FormGroup, InputLabel,
+  MenuItem,
+  Select,
   Typography
 } from "@material-ui/core";
-import {useCallback, useMemo, useState} from "react";
+import {useCallback, useEffect, useMemo, useState} from "react";
 
-const timeReducers: {
-  [k: string]: {
-    reduction: number;
-    category?: string;
-  }
-} = {
-  ["Advanced Cooking Utensil"]: {
-    reduction: 1
-  },
-  ["Silver Embroidered Cook's Clothes"]: {
-    reduction: 1,
-    category: "Clothes"
-  },
-  ["+1 Silver Embroidered Cook's Clothes"]: {
-    reduction: 2,
-    category: "Clothes"
-  },
-  ["+2 Silver Embroidered Cook's Clothes"]: {
-    reduction: 3,
-    category: "Clothes"
-  },
-  ["+3 Silver Embroidered Cook's Clothes"]: {
-    reduction: 4,
-    category: "Clothes"
-  },
-  ["+4 Silver Embroidered Cook's Clothes"]: {
-    reduction: 5,
-    category: "Clothes"
-  }
+const isNumber = (k: unknown) => {
+  return typeof k === "number";
 };
 
-const baseState = Object.keys(timeReducers).reduce(
-  (accumulator, value) => ({
+const isObject = (k: unknown) => {
+  return typeof k === "object";
+};
+
+const cookTimeModifiers: {
+  [k: string]: number | {[k: string]: number}
+} = {
+  ["Clothes"]: {
+    ["None"]: 0,
+    ["Silver Embroidered Cook's Clothes"]: -1,
+    ["+1 Silver Embroidered Cook's Clothes"]: -2,
+    ["+2 Silver Embroidered Cook's Clothes"]: -3,
+    ["+3 Silver Embroidered Cook's Clothes"]: -4,
+    ["+4 Silver Embroidered Cook's Clothes"]: -5,
+    ["+5 Silver Embroidered Cook's Clothes"]: -7
+  },
+  ["Alchemy Stone"]: {
+    ["None"]: 0,
+    ["Imperfect Alchemy Stone of Life"]: -0.5,
+    ["Rough Alchemy Stone of Life"]: -0.7,
+    ["Polished Alchemy Stone of Life"]: -0.9,
+    ["Sturdy Alchemy Stone of Life"]: -1.1,
+    ["Sharp Alchemy Stone of Life"]: -1.4,
+    ["Resplendent Alchemy Stone of Life"]: -1.7,
+    ["Splendid Alchemy Stone of Life"]: -2,
+    ["Khan's Heart: Life"]: -1.3,
+    ["Life Spirit Stone"]: -1.1
+  },
+  ["Utensil"]: {
+    ["None"]: 0,
+    ["Intermediate Cooking Utensil"]: 0,
+    ["Advanced Cooking Utensil"]: -1,
+    ["Serendia Traditional Cooking Utensil"]: +6,
+    ["Calpheon Traditional Cooking Utensil"]: +7
+  },
+  ["Canape Outfit"]: -2,
+  ["Simple Cron Meal"]: -0.6
+};
+
+const baseCheckboxState = Object.entries(cookTimeModifiers).reduce(
+  (accumulator, [k, v]) => ({
     ...accumulator,
-    [value]: false
+    [k]: isNumber(v) ? v : undefined
   }),
   {}
 );
 
-type TimeReducer = keyof typeof timeReducers;
+const baseDropdownState = Object.entries(cookTimeModifiers).reduce(
+  (accumulator, [k, v]) => ({
+    ...accumulator,
+    [k]: isObject(v) ? "" : undefined
+  }),
+  {}
+);
+
+type CookTimeModifier = keyof typeof cookTimeModifiers;
 
 const CookTime = () => {
   const [checkboxState, setCheckboxState] =
-    useState<{[s in TimeReducer]: boolean}>(baseState as never);
+    useState<{[s in CookTimeModifier]: boolean}>(baseCheckboxState);
 
-  const getChecked = useCallback((key: TimeReducer) => {
-    return checkboxState[key];
-  }, [checkboxState]);
+  const [dropdownState, setDropdownState] =
+    useState<{[s in CookTimeModifier]: string}>(baseDropdownState);
 
-  const toggleChecked = useCallback((key: TimeReducer) => {
-    const keyCategory = timeReducers[key].category;
+  const getChecked = useCallback((key: CookTimeModifier) => (
+    checkboxState[key]
+  ), [checkboxState]);
 
-    setCheckboxState((oldState) => {
-      return Object.entries(oldState).reduce(
-        (accumulator, [entryKey, entryVal]) => {
-          if (entryKey === key) {
-            return {...accumulator, [entryKey]: !entryVal};
-          }
+  const toggleChecked = useCallback((key: CookTimeModifier) => {
+    setCheckboxState((oldState) => ({
+      ...oldState,
+      [key]: !oldState[key]
+    }));
+  }, [setCheckboxState]);
 
-          const entryCategory = timeReducers[entryKey as TimeReducer].category;
-          if (keyCategory && keyCategory === entryCategory) {
-            return {...accumulator, [entryKey]: false};
-          }
+  const getDropdownValue = useCallback((key: CookTimeModifier) => (
+    dropdownState[key]
+  ), [dropdownState]);
 
-          return {...accumulator, [entryKey]: entryVal};
-        },
-        {}
-      );
-    });
-  }, []);
+  const setDropdownValue = useCallback((key: CookTimeModifier, val: string) => {
+    setDropdownState((oldState) => ({
+      ...oldState,
+      [key]: val
+    }));
+  }, [setDropdownState]);
 
   const getTime = useCallback(() => {
-    const totalReduction = Object.entries(timeReducers).reduce(
-      (accumulator, [k, v]) => {
-        return accumulator + (checkboxState[k] ? v.reduction : 0);
-      },
-      0
-    );
+    const timeMod =
+      Object.entries(checkboxState).reduce(
+        (accumulator, [k, v]) => (
+          accumulator + (v ? cookTimeModifiers[k] as number : 0)
+        ),
+        0
+      ) + Object.entries(dropdownState).reduce(
+        (accumulator, [k, v]) => {
+          console.log(k, (cookTimeModifiers[k] as {[k: string]: number})[v]);
+          return (
+            accumulator + (
+              (cookTimeModifiers[k] as {[k: string]: number})[v] || 0
+            )
+          );
+        },
+        0
+      );
 
-    return Math.max(1, 10 - totalReduction);
-  }, [checkboxState]);
+    return Math.round(Math.max(1, 10 + timeMod) * 10) / 10;
+  }, [checkboxState, dropdownState]);
 
   const checklist = useMemo(() => (
-    Object.entries(timeReducers).map(([k, v]) => (
-      <FormControlLabel
-        control={(
-          <Checkbox
-            color="secondary"
-            checked={!!getChecked(k as TimeReducer)}
-            onChange={() => toggleChecked(k as TimeReducer)}
-          />
-        )}
-        label={`${k} (-${v.reduction} sec)`}
-        key={k}
-      />
+    Object.entries(cookTimeModifiers).map(([topLevelKey, topLevelVal]) => (
+      isNumber(topLevelVal) ? (
+        <FormControlLabel
+          control={(
+            <Checkbox
+              color="secondary"
+              checked={!!getChecked(topLevelKey as CookTimeModifier)}
+              onChange={() => toggleChecked(topLevelKey as CookTimeModifier)}
+            />
+          )}
+          label={`${topLevelKey} (${topLevelVal} sec)`}
+          key={topLevelKey}
+        />
+      ) : (
+        <FormControl key={topLevelKey}>
+          <InputLabel id={topLevelKey.replaceAll(" ", "_")}>
+            {topLevelKey}
+          </InputLabel>
+          <Select
+            labelId={topLevelKey.replaceAll(" ", "_")}
+            value={getDropdownValue(topLevelKey)}
+            onChange={(e) => {
+              setDropdownValue(topLevelKey, e.target.value as string);
+            }}
+            name={topLevelKey}
+          >
+            {Object.entries(topLevelVal).map(([subLevelKey, subLevelVal]) => (
+              <MenuItem
+                value={subLevelKey}
+                key={subLevelKey}
+              >
+                {`${subLevelKey} (${subLevelVal} sec)`}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      )
     ))
-  ), [getChecked, toggleChecked]);
+  ), [getChecked, toggleChecked, getDropdownValue, setDropdownValue]);
 
   return (
     <>
       <Typography variant="h3">
-        Cooking Time: {getTime()} seconds
+        Cooking Time: {getTime()} second{getTime() !== 1 ? "s" : ""}
       </Typography>
       <FormGroup>
         {checklist}
