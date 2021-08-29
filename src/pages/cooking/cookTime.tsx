@@ -106,14 +106,14 @@ const CookTime = () => {
   ), [getChecked, toggleChecked]);
 
   return (
-    <Box display="flex" flexDirection="column">
+    <>
       <Typography variant="h3">
         Cooking Time: {getTime()} seconds
       </Typography>
       <FormGroup>
         {checklist}
       </FormGroup>
-    </Box>
+    </>
   );
 };
 

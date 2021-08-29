@@ -24,6 +24,7 @@ const Main = ({children}: {children: any}) => {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
           }
         `}
       >
