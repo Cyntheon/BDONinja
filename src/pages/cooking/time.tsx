@@ -1,15 +1,18 @@
 import {
+  CardContent,
   Checkbox,
   FormControl,
   FormControlLabel,
   FormGroup,
   InputLabel,
   MenuItem,
+  Paper,
   Select,
   Typography
 } from "@material-ui/core";
 import {useCallback, useMemo, useState} from "react";
 import {NextSeo} from "next-seo";
+import {css} from "@emotion/react";
 
 const isNumber = (k: unknown) => {
   return typeof k === "number";
@@ -175,16 +178,33 @@ const CookingTime = () => {
           description: "A simple calculator for your BDO cooking time"
         }}
       />
-      <Typography variant="h3">
-        Cooking Time:
-        <Typography variant="inherit" color="secondary">
-          {` ${getTime()} `}
-        </Typography>
-        second{getTime() !== 1 ? "s" : ""}
+      <Typography
+        variant="h2"
+        component="h1"
+        css={css`
+          &.MuiTypography-root {
+            text-decoration: underline;
+            text-align: center;
+            margin-bottom: 32px;
+          }
+        `}
+      >
+        Cooking Time Calculator
       </Typography>
-      <FormGroup>
-        {checklist}
-      </FormGroup>
+      <Paper elevation={3}>
+        <CardContent>
+          <Typography variant="h4" component="h2">
+            Cooking Time:
+            <Typography variant="inherit" color="secondary">
+              {` ${getTime()} `}
+            </Typography>
+            second{getTime() !== 1 ? "s" : ""}
+          </Typography>
+          <FormGroup>
+            {checklist}
+          </FormGroup>
+        </CardContent>
+      </Paper>
     </>
   );
 };
