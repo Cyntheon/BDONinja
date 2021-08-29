@@ -23,12 +23,20 @@ const CustomApp = ({Component, pageProps}: AppProps) => {
           }}
           additionalMetaTags={[
             {
+              httpEquiv: "x-ua-compatible",
+              content: "IE=edge"
+            },
+            {
               name: "viewport",
               content: "width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
             },
             {
               name: "theme-color",
               content: theme.palette.primary.main
+            },
+            {
+              name: "screen-orientation",
+              content: "portrait"
             }
           ]}
           additionalLinkTags={[
