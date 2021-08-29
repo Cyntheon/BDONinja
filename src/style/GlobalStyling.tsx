@@ -6,7 +6,7 @@ import React, {useEffect} from "react";
 import font from "style/font";
 
 const GlobalStyling = (
-  {children}: {children: React.ReactChild | React.ReactChildren}
+  {children}: {children: React.ReactNode}
 ) => {
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
@@ -20,7 +20,8 @@ const GlobalStyling = (
       <CssBaseline />
       <Global styles={reset} />
       <Global styles={font} />
-      {children}
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+      <>{children}</>
     </MuiThemeProvider>
   );
 };

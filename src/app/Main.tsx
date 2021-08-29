@@ -5,7 +5,7 @@ import Drawer from "app/drawer/Drawer";
 import {css} from "@emotion/react";
 
 const Main = (
-  {children}: {children: React.ReactChild | React.ReactChildren}
+  {children}: {children: React.ReactNode}
 ) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -36,7 +36,8 @@ const Main = (
           }
         `}
       >
-        {children}
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+        <>{children}</>
       </Container>
     </>
   );
