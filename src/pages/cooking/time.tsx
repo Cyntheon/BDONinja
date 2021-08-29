@@ -178,11 +178,10 @@ const CookingTime = () => {
         }}
       />
       <Typography
-        variant="h2"
+        variant="h3"
         component="h1"
         css={css`
           &.MuiTypography-root {
-            text-decoration: underline;
             text-align: center;
             margin-bottom: 32px;
           }
