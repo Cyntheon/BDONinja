@@ -168,7 +168,11 @@ const CookTime = () => {
   return (
     <>
       <Typography variant="h3">
-        Cooking Time: {getTime()} second{getTime() !== 1 ? "s" : ""}
+        Cooking Time:
+        <Typography variant="inherit" color="secondary">
+          {` ${getTime()} `}
+        </Typography>
+        second{getTime() !== 1 ? "s" : ""}
       </Typography>
       <FormGroup>
         {checklist}
