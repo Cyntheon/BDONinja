@@ -139,11 +139,11 @@ const CookTime = () => {
         />
       ) : (
         <FormControl key={topLevelKey}>
-          <InputLabel id={topLevelKey.replaceAll(" ", "_")}>
+          <InputLabel id={topLevelKey}>
             {topLevelKey}
           </InputLabel>
           <Select
-            labelId={topLevelKey.replaceAll(" ", "_")}
+            labelId={topLevelKey}
             value={getDropdownValue(topLevelKey)}
             color="secondary"
             onChange={(e) => {
