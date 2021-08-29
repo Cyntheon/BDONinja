@@ -56,7 +56,7 @@ const cookTimeModifiers: {
 const baseCheckboxState = Object.entries(cookTimeModifiers).reduce(
   (accumulator, [k, v]) => ({
     ...accumulator,
-    [k]: isNumber(v) ? v : undefined
+    [k]: isNumber(v) ? false : undefined
   }),
   {}
 );
@@ -129,6 +129,7 @@ const CookTime = () => {
           control={(
             <Checkbox
               color="secondary"
+              // Coerce to boolean
               checked={!!getChecked(topLevelKey as CookTimeModifier)}
               onChange={() => toggleChecked(topLevelKey as CookTimeModifier)}
             />
@@ -144,6 +145,7 @@ const CookTime = () => {
           <Select
             labelId={topLevelKey.replaceAll(" ", "_")}
             value={getDropdownValue(topLevelKey)}
+            color="secondary"
             onChange={(e) => {
               setDropdownValue(topLevelKey, e.target.value as string);
             }}
