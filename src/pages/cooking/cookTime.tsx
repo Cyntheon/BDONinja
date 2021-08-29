@@ -139,7 +139,7 @@ const CookTime = () => {
         />
       ) : (
         <FormControl key={topLevelKey}>
-          <InputLabel id={topLevelKey}>
+          <InputLabel id={topLevelKey} color="secondary">
             {topLevelKey}
           </InputLabel>
           <Select
