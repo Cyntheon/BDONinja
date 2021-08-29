@@ -6,8 +6,7 @@ import {
   ListItemText, Typography
 } from "@material-ui/core";
 import Link from "next/link";
-import HomeIcon from "@material-ui/icons/Home";
-import TimerIcon from "@material-ui/icons/Timer";
+import {Home, Timer} from "@material-ui/icons";
 import {useRouter} from "next/router";
 import {createElement} from "react";
 
@@ -16,14 +15,14 @@ const pathList = [
     {
       path: "/",
       name: "Home",
-      icon: HomeIcon
+      icon: Home
     }
   ],
   [
     {
       path: "/cooking/time",
       name: "Cooking Time Calculator",
-      icon: TimerIcon
+      icon: Timer
     }
   ]
 ];
