@@ -131,8 +131,7 @@ const CookingTime = () => {
         <FormControlLabel
           control={(
             <Checkbox
-              color="secondary"
-              // Coerce to boolean
+              color="primary"
               checked={!!getChecked(topLevelKey as CookTimeModifier)}
               onChange={() => toggleChecked(topLevelKey as CookTimeModifier)}
             />
@@ -142,13 +141,13 @@ const CookingTime = () => {
         />
       ) : (
         <FormControl key={topLevelKey}>
-          <InputLabel id={topLevelKey} color="secondary">
+          <InputLabel id={topLevelKey} color="primary">
             {topLevelKey}
           </InputLabel>
           <Select
             labelId={topLevelKey}
             value={getDropdownValue(topLevelKey)}
-            color="secondary"
+            color="primary"
             onChange={(e) => {
               setDropdownValue(topLevelKey, e.target.value as string);
             }}
@@ -193,9 +192,18 @@ const CookingTime = () => {
       </Typography>
       <Paper elevation={3}>
         <CardContent>
-          <Typography variant="h4" component="h2">
+          <Typography
+            variant="h4"
+            component="h2"
+            css={css`
+              &.MuiTypography-root {
+                text-align: center;
+                margin-bottom: 8px;
+              }
+            `}
+          >
             Cooking Time:
-            <Typography variant="inherit" color="secondary">
+            <Typography variant="inherit" color="primary">
               {` ${getTime()} `}
             </Typography>
             second{getTime() !== 1 ? "s" : ""}

@@ -35,7 +35,7 @@ const DrawerList = () => {
   };
 
   const getColor = (path: string) => {
-    return isActive(path) ? "secondary" : "inherit";
+    return isActive(path) ? "primary" : "inherit";
   };
 
   return (

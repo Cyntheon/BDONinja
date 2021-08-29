@@ -1,11 +1,14 @@
 import {
-  CardContent,
+  Button,
+  CardActionArea, CardActions,
+  CardContent, Icon, IconButton,
   Link as MuiLink,
   Paper,
   Typography
 } from "@material-ui/core";
 import Link from "next/link";
 import {NextSeo} from "next-seo";
+import {Share, Timer} from "@material-ui/icons";
 
 const Index = () => {
   return (
@@ -17,15 +20,25 @@ const Index = () => {
         }}
       />
       <Paper elevation={3}>
-        <CardContent>
-          <Link href="/cooking/time" passHref>
-            <MuiLink href="" color="secondary">
-              <Typography variant="h4">
-                Cook Time Calculator
-              </Typography>
-            </MuiLink>
-          </Link>
-        </CardContent>
+        <CardActionArea>
+          <CardContent>
+            <Icon>
+              <Timer color="primary" />
+            </Icon>
+            <Link href="/cooking/time" passHref>
+              <MuiLink href="" color="primary">
+                <Typography variant="h4" component="h2">
+                  Cooking Time Calculator
+                </Typography>
+              </MuiLink>
+            </Link>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <IconButton size="small" color="primary">
+            <Share />
+          </IconButton>
+        </CardActions>
       </Paper>
     </>
   );

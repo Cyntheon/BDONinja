@@ -8,7 +8,7 @@ interface Props {
 
 const Topbar = ({toggleDrawerOpen}: Props) => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="secondary">
       <Toolbar
         css={css`
           &.MuiToolbar-gutters {
