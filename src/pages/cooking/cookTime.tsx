@@ -1,12 +1,14 @@
 import {
-  Checkbox, FormControl,
+  Checkbox,
+  FormControl,
   FormControlLabel,
-  FormGroup, InputLabel,
+  FormGroup,
+  InputLabel,
   MenuItem,
   Select,
   Typography
 } from "@material-ui/core";
-import {useCallback, useEffect, useMemo, useState} from "react";
+import {useCallback, useMemo, useState} from "react";
 
 const isNumber = (k: unknown) => {
   return typeof k === "number";
