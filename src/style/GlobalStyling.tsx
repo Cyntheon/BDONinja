@@ -2,10 +2,12 @@ import theme from "style/theme";
 import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
 import {Global} from "@emotion/react";
 import reset from "style/reset";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import font from "style/font";
 
-const GlobalStyling = ({children}: {children: unknown}) => {
+const GlobalStyling = (
+  {children}: {children: React.ReactChild | React.ReactChildren}
+) => {
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {

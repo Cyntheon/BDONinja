@@ -1,10 +1,12 @@
 import {Container} from "@material-ui/core";
 import Topbar from "app/topbar/Topbar";
-import {useCallback, useState} from "react";
+import React, {useCallback, useState} from "react";
 import Drawer from "app/drawer/Drawer";
 import {css} from "@emotion/react";
 
-const Main = ({children}: {children: any}) => {
+const Main = (
+  {children}: {children: React.ReactChild | React.ReactChildren}
+) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawerOpen = useCallback(() => {
