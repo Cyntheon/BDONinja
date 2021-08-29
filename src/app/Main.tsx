@@ -28,6 +28,7 @@ const Main = (
             align-items: center;
             flex-direction: column;
             padding: 16px 0;
+            overflow-x: hidden;
             
             @media (min-width: 600px) {
               padding: 24px 0;
