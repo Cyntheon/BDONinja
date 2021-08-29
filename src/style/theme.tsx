@@ -8,10 +8,10 @@ const theme = createTheme({
   palette: {
     type: "dark",
     primary: {
-      main: pink["800"]
+      main: pink["A100"]
     },
     secondary: {
-      main: pink["A100"]
+      main: pink["800"]
     }
   }
 });
