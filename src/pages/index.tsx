@@ -1,6 +1,10 @@
-import {Card, CardContent, Typography} from "@material-ui/core";
+import {
+  CardContent,
+  Link as MuiLink,
+  Paper,
+  Typography
+} from "@material-ui/core";
 import Link from "next/link";
-import {Link as MuiLink} from "@material-ui/core";
 import {NextSeo} from "next-seo";
 
 const Index = () => {
@@ -12,17 +16,17 @@ const Index = () => {
           title: "Home"
         }}
       />
-      <Card>
+      <Paper elevation={3}>
         <CardContent>
-          <Typography>
-            <Link href="/cooking/time" passHref>
-              <MuiLink href="" color="secondary">
+          <Link href="/cooking/time" passHref>
+            <MuiLink href="" color="secondary">
+              <Typography variant="h4">
                 Cook Time Calculator
-              </MuiLink>
-            </Link>
-          </Typography>
+              </Typography>
+            </MuiLink>
+          </Link>
         </CardContent>
-      </Card>
+      </Paper>
     </>
   );
 };
