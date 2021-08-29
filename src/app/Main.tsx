@@ -1,10 +1,12 @@
 import {Container} from "@material-ui/core";
 import Topbar from "app/topbar/Topbar";
-import {useCallback, useState} from "react";
+import React, {useCallback, useState} from "react";
 import Drawer from "app/drawer/Drawer";
 import {css} from "@emotion/react";
 
-const Main = ({children}: {children: any}) => {
+const Main = (
+  {children}: {children: React.ReactNode}
+) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawerOpen = useCallback(() => {
@@ -25,10 +27,17 @@ const Main = ({children}: {children: any}) => {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding: 16px 0;
+            overflow-x: hidden;
+            
+            @media (min-width: 600px) {
+              padding: 24px 0;
+            }
           }
         `}
       >
-        {children}
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+        <>{children}</>
       </Container>
     </>
   );

@@ -1,14 +1,18 @@
 import {
+  CardContent,
   Checkbox,
   FormControl,
   FormControlLabel,
   FormGroup,
   InputLabel,
   MenuItem,
+  Paper,
   Select,
   Typography
 } from "@material-ui/core";
 import {useCallback, useMemo, useState} from "react";
+import {NextSeo} from "next-seo";
+import {css} from "@emotion/react";
 
 const isNumber = (k: unknown) => {
   return typeof k === "number";
@@ -71,7 +75,7 @@ const baseDropdownState = Object.entries(cookTimeModifiers).reduce(
 
 type CookTimeModifier = keyof typeof cookTimeModifiers;
 
-const CookTime = () => {
+const CookingTime = () => {
   const [checkboxState, setCheckboxState] =
     useState<{[s in CookTimeModifier]: boolean}>(baseCheckboxState);
 
@@ -127,8 +131,7 @@ const CookTime = () => {
         <FormControlLabel
           control={(
             <Checkbox
-              color="secondary"
-              // Coerce to boolean
+              color="primary"
               checked={!!getChecked(topLevelKey as CookTimeModifier)}
               onChange={() => toggleChecked(topLevelKey as CookTimeModifier)}
             />
@@ -138,13 +141,13 @@ const CookTime = () => {
         />
       ) : (
         <FormControl key={topLevelKey}>
-          <InputLabel id={topLevelKey} color="secondary">
+          <InputLabel id={topLevelKey} color="primary">
             {topLevelKey}
           </InputLabel>
           <Select
             labelId={topLevelKey}
             value={getDropdownValue(topLevelKey)}
-            color="secondary"
+            color="primary"
             onChange={(e) => {
               setDropdownValue(topLevelKey, e.target.value as string);
             }}
@@ -166,18 +169,51 @@ const CookTime = () => {
 
   return (
     <>
-      <Typography variant="h3">
-        Cooking Time:
-        <Typography variant="inherit" color="secondary">
-          {` ${getTime()} `}
-        </Typography>
-        second{getTime() !== 1 ? "s" : ""}
+      <NextSeo
+        title="Cooking Time Calculator"
+        description="A simple calculator for your BDO cooking time"
+        openGraph={{
+          title: "Cooking Time Calculator",
+          description: "A simple calculator for your BDO cooking time"
+        }}
+      />
+      <Typography
+        variant="h3"
+        component="h1"
+        css={css`
+          &.MuiTypography-root {
+            text-align: center;
+            margin-bottom: 32px;
+          }
+        `}
+      >
+        Cooking Time Calculator
       </Typography>
-      <FormGroup>
-        {checklist}
-      </FormGroup>
+      <Paper elevation={3}>
+        <CardContent>
+          <Typography
+            variant="h4"
+            component="h2"
+            css={css`
+              &.MuiTypography-root {
+                text-align: center;
+                margin-bottom: 8px;
+              }
+            `}
+          >
+            Cooking Time:
+            <Typography variant="inherit" color="primary">
+              {` ${getTime()} `}
+            </Typography>
+            second{getTime() !== 1 ? "s" : ""}
+          </Typography>
+          <FormGroup>
+            {checklist}
+          </FormGroup>
+        </CardContent>
+      </Paper>
     </>
   );
 };
 
-export default CookTime;
+export default CookingTime;

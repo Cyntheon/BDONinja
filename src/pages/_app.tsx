@@ -1,24 +1,48 @@
 import {AppProps} from "next/app";
-import Head from "next/head";
 import Main from "app/Main";
 import GlobalStyling from "style/GlobalStyling";
+import {DefaultSeo} from "next-seo";
+import theme from "style/theme";
 
+/* eslint-disable max-len */
 const CustomApp = ({Component, pageProps}: AppProps) => {
   return (
-    <>
-      <Head>
-        <title>BDO Ninja</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
+    <GlobalStyling>
+      <Main>
+        <DefaultSeo
+          title={undefined}
+          titleTemplate="%s | BDO Ninja"
+          defaultTitle="BDO Ninja"
+          description="Calculators and helpers for Black Desert Online (BDO)"
+          openGraph={{
+            type: "website",
+            locale: "en_US",
+            url: "https://www.bdo.ninja/",
+            site_name: "BDO Ninja",
+            description: "Calculators and helpers for Black Desert Online (BDO)"
+          }}
+          additionalMetaTags={[
+            {
+              httpEquiv: "x-ua-compatible",
+              content: "IE=edge"
+            },
+            {
+              name: "viewport",
+              content: "width=device-width,initial-scale=1"
+            },
+            {
+              name: "theme-color",
+              content: theme.palette.primary.main
+            },
+            {
+              name: "screen-orientation",
+              content: "portrait"
+            }
+          ]}
         />
-      </Head>
-      <GlobalStyling>
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-      </GlobalStyling>
-    </>
+        <Component {...pageProps} />
+      </Main>
+    </GlobalStyling>
   );
 };
 
