@@ -109,7 +109,6 @@ const CookTime = () => {
         0
       ) + Object.entries(dropdownState).reduce(
         (accumulator, [k, v]) => {
-          console.log(k, (cookTimeModifiers[k] as {[k: string]: number})[v]);
           return (
             accumulator + (
               (cookTimeModifiers[k] as {[k: string]: number})[v] || 0
@@ -139,11 +138,11 @@ const CookTime = () => {
         />
       ) : (
         <FormControl key={topLevelKey}>
-          <InputLabel id={topLevelKey.replaceAll(" ", "_")}>
+          <InputLabel id={topLevelKey} color="secondary">
             {topLevelKey}
           </InputLabel>
           <Select
-            labelId={topLevelKey.replaceAll(" ", "_")}
+            labelId={topLevelKey}
             value={getDropdownValue(topLevelKey)}
             color="secondary"
             onChange={(e) => {
@@ -168,7 +167,11 @@ const CookTime = () => {
   return (
     <>
       <Typography variant="h3">
-        Cooking Time: {getTime()} second{getTime() !== 1 ? "s" : ""}
+        Cooking Time:
+        <Typography variant="inherit" color="secondary">
+          {` ${getTime()} `}
+        </Typography>
+        second{getTime() !== 1 ? "s" : ""}
       </Typography>
       <FormGroup>
         {checklist}
