@@ -109,7 +109,6 @@ const CookTime = () => {
         0
       ) + Object.entries(dropdownState).reduce(
         (accumulator, [k, v]) => {
-          console.log(k, (cookTimeModifiers[k] as {[k: string]: number})[v]);
           return (
             accumulator + (
               (cookTimeModifiers[k] as {[k: string]: number})[v] || 0
