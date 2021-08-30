@@ -50,6 +50,7 @@ const cookTimeModifiers: {
     ["None"]: 0,
     ["Intermediate Cooking Utensil"]: 0,
     ["Advanced Cooking Utensil"]: -1,
+    ["Supreme Cooking Utensil"]: -1,
     ["Serendia Traditional Cooking Utensil"]: +6,
     ["Calpheon Traditional Cooking Utensil"]: +7
   },
