@@ -3,7 +3,7 @@ import {pink} from "@material-ui/core/colors";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "StrongSword_Pure, serif"
+    fontFamily: "BlackSpirit, serif"
   },
   palette: {
     type: "dark",
