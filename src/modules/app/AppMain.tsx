@@ -12,7 +12,7 @@ import useToggle from "utils/useToggle";
 
 interface Props {
   path: string;
-  title?: string;
+  title: string;
   description?: string;
   heading?: string;
   children: ReactNode;
