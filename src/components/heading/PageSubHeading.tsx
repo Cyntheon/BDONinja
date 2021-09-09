@@ -1,18 +1,12 @@
 import {css} from "@emotion/react";
 import {Typography} from "@material-ui/core";
-import React from "react";
+import {ReactNode} from "react";
 
-type Props =
-  | {
-      text: string;
-      children?: never;
-    }
-  | {
-      text?: never;
-      children: React.ReactNode;
-    };
+interface Props {
+  children: ReactNode;
+}
 
-const PageSubHeading = ({text, children}: Props) => {
+const PageSubHeading = ({children}: Props) => {
   return (
     <Typography
       variant="h4"
@@ -24,7 +18,7 @@ const PageSubHeading = ({text, children}: Props) => {
         }
       `}
     >
-      {text || children}
+      {children}
     </Typography>
   );
 };
