@@ -1,11 +1,11 @@
 import {SwipeableDrawer} from "@material-ui/core";
 import {Dispatch, SetStateAction} from "react";
-import DrawerList from "app/drawer/DrawerList";
+import DrawerList from "modules/app/drawer/DrawerList";
 import {css} from "@emotion/react";
 
 interface Props {
-  drawerOpen: boolean,
-  setDrawerOpen: Dispatch<SetStateAction<boolean>>
+  drawerOpen: boolean;
+  setDrawerOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const Drawer = ({drawerOpen, setDrawerOpen}: Props) => {

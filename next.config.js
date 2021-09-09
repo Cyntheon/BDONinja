@@ -5,14 +5,18 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 /** @type {import('next').NextConfig} */
 const config = {
-  // images: {
-  //   loader: "imgix",
-  //   path: ""
-  // },
-  reactStrictMode: true
+  reactStrictMode: true,
+  redirects: async () => (
+    [
+      {
+        source: "/timeCalculator",
+        destination: "/time",
+        permanent: true
+      }
+    ]
+  )
 };
 
 module.exports = process.env.NODE_ENV === "production" ?
   config :
   withBundleAnalyzer(config);
-

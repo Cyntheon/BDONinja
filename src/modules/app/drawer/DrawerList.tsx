@@ -3,7 +3,8 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText, Typography
+  ListItemText,
+  Typography
 } from "@material-ui/core";
 import Link from "next/link";
 import {Home, Timer} from "@material-ui/icons";
@@ -20,7 +21,7 @@ const pathList = [
   ],
   [
     {
-      path: "/cooking/timeCalculator",
+      path: "/cooking/time",
       name: "Cooking Time Calculator",
       icon: Timer
     }
@@ -43,19 +44,13 @@ const DrawerList = () => {
       {pathList.map((pathSection) => (
         <>
           {pathSection.map(({path, icon, name}) => (
-            <Link
-              href={path}
-              passHref
-              key={path + name}
-            >
+            <Link href={path} passHref key={path + name}>
               <ListItem button>
                 <ListItemIcon>
                   {createElement(icon, {color: getColor(path)})}
                 </ListItemIcon>
                 <ListItemText>
-                  <Typography color={getColor(path)}>
-                    {name}
-                  </Typography>
+                  <Typography color={getColor(path)}>{name}</Typography>
                 </ListItemText>
               </ListItem>
             </Link>

@@ -1,19 +1,140 @@
 {
-  "extends": [
-    "@cyntheon/next",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      }
+    }
   ],
-  "plugins": ["@emotion"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "prefer-arrow",
+    "@emotion"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "google",
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "JSX": true,
+    "React": true
+  },
   "rules": {
-    "no-undef": "off",
-    "quote-props": [
-      "error",
-      "as-needed"
-    ],
     "spaced-comment": "off",
     "capitalized-comments": "off",
+    "require-jsdoc": "off",
+    "valid-jsdoc": "off",
+    "@typescript-eslint/await-thenable": "warn",
+    "@typescript-eslint/consistent-indexed-object-style": [
+      "error",
+      "index-signature"
+    ],
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      {
+        "assertionStyle": "as",
+        "objectLiteralTypeAssertions": "allow"
+      }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/require-await": "off",
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
+      {
+        "disallowPrototype": true
+      }
+    ],
+    "react/button-has-type": "error",
+    "react/no-access-state-in-setstate": "error",
+    "react/no-array-index-key": "warn",
+    "react/no-danger": "warn",
+    "react/no-multi-comp": "error",
+    "react/no-this-in-sfc": "error",
+    "react/no-typos": "warn",
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": true
+      }
+    ],
+    "react/prefer-stateless-function": "error",
+    "react/self-closing-comp": "error",
+    "react/void-dom-elements-no-children": "error",
+    "react/jsx-closing-bracket-location": "error",
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-curly-brace-presence": [
+      "error",
+      {
+        "props": "never",
+        "children": "never"
+      }
+    ],
+    "react/jsx-curly-newline": [
+      "error",
+      "consistent"
+    ],
+    "react/jsx-curly-spacing": [
+      "error",
+      {
+        "when": "never"
+      }
+    ],
+    "react/jsx-equals-spacing": [
+      "error",
+      "never"
+    ],
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "multiline-multiprop"
+    ],
+    "react/jsx-fragments": [
+      "error",
+      "syntax"
+    ],
+    "react/jsx-handler-names": "warn",
+    "react/jsx-max-depth": [
+      "warn",
+      {
+        "max": 3
+      }
+    ],
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 1,
+        "when": "multiline"
+      }
+    ],
+    "react/jsx-no-constructed-context-values": "error",
+    "react/jsx-no-script-url": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/jsx-pascal-case": "error",
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "parens-new-line",
+        "logical": "parens-new-line",
+        "prop": false
+      }
+    ],
+    "no-undef": "off",
     "@emotion/pkg-renaming": "error",
     "@emotion/jsx-import": "off",
     "@emotion/no-vanilla": "error",
