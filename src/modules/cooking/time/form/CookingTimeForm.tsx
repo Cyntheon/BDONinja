@@ -23,7 +23,6 @@ const CookingTimeForm = ({
   return (
     <FormGroup>
       {Object.entries(cookingTimeMods).map(([name, value]) => {
-        console.log(name, value);
         return isNumber(value) ? (
           <CookingTimeCheckbox
             key={name}
