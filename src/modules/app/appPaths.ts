@@ -3,13 +3,16 @@ import {OverridableComponent} from "@material-ui/core/OverridableComponent";
 import {SvgIconTypeMap} from "@material-ui/core";
 
 interface PageMeta {
-  title?: string;
+  title: string;
   description?: string;
   heading?: string;
   Icon?: OverridableComponent<SvgIconTypeMap>;
 }
 
 export const pageMetas: {[k: string]: PageMeta} = {
+  "/404": {
+    title: "Error"
+  },
   "/": {
     title: "Home",
     heading: "Welcome to BDO Ninja!",

@@ -1,11 +1,11 @@
 import React from "react";
 import NavCard from "modules/home/navCard/NavCard";
-import {getPageMeta} from "modules/app/appPaths";
+import PageWrapper from "modules/app/PageWrapper";
 
 const Index = () => (
-  <NavCard title="Cooking Time Calculator" path="/cooking/time" />
+  <PageWrapper path="/">
+    <NavCard path="/cooking/time" />
+  </PageWrapper>
 );
-
-export const getStaticProps = getPageMeta("/");
 
 export default Index;

@@ -44,10 +44,9 @@ const AppMain = ({path, title, description, heading, children}: Props) => {
           }
         `}
       >
-        <AppSeo path={path} title={title} description={description}>
-          <PageHeading>{heading || title}</PageHeading>
-          {children}
-        </AppSeo>
+        <AppSeo path={path} title={title} description={description} />
+        <PageHeading>{heading || title}</PageHeading>
+        {children}
       </Container>
     </AppStyles>
   );
