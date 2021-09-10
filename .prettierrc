@@ -1,0 +1,12 @@
+{
+  "arrowParens": "always",
+  "bracketSpacing": false,
+  "endOfLine": "lf",
+  "jsxBracketSameLine": false,
+  "parser": "typescript",
+  "quoteProps": "as-needed",
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "none"
+}

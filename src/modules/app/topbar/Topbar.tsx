@@ -13,7 +13,7 @@ const Topbar = ({toggleDrawerOpen}: Props) => {
         css={css`
           &.MuiToolbar-gutters {
             padding: 0 8px;
-            
+
             @media (min-width: 600px) {
               padding: 0 12px;
             }

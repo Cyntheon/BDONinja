@@ -1,0 +1,6 @@
+next-env.d.ts
+dist/
+out/
+coverage/
+next/
+**/*.js
