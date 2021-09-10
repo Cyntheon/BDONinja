@@ -7,18 +7,13 @@ import reset from "styles/reset";
 import font from "styles/font";
 import AppStyles from "modules/app/AppStyles";
 import AppSeo from "modules/app/AppSeo";
-import PageHeading from "components/heading/PageHeading";
 import useToggle from "utils/useToggle";
 
 interface Props {
-  path: string;
-  title: string;
-  description?: string;
-  heading?: string;
   children: ReactNode;
 }
 
-const AppMain = ({path, title, description, heading, children}: Props) => {
+const AppMain = ({children}: Props) => {
   const [drawerOpen, toggleDrawerOpen, setDrawerOpen] = useToggle();
 
   return (
@@ -44,8 +39,7 @@ const AppMain = ({path, title, description, heading, children}: Props) => {
           }
         `}
       >
-        <AppSeo path={path} title={title} description={description} />
-        <PageHeading>{heading || title}</PageHeading>
+        <AppSeo />
         {children}
       </Container>
     </AppStyles>
