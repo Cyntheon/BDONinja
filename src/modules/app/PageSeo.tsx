@@ -1,5 +1,4 @@
 import {NextSeo} from "next-seo";
-import {pageMetas} from "modules/app/appPaths";
 
 interface Props {
   path: string;
