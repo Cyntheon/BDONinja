@@ -1,5 +1,5 @@
 import {AppProps} from "next/app";
-import AppMain from "modules/app/AppMain";
+import AppMain from "app/AppMain";
 
 const CustomApp = ({Component, pageProps}: AppProps) => {
   return (

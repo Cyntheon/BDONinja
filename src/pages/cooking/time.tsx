@@ -1,6 +1,6 @@
-import {CardContent, Paper} from "@material-ui/core";
+import {CardContent, Paper} from "@mui/material";
 import CookingTimeMain from "modules/cooking/time/CookingTimeMain";
-import PageWrapper from "modules/app/PageWrapper";
+import PageWrapper from "app/page/PageWrapper";
 
 const CookingTimeCalculator = () => (
   <PageWrapper path="/cooking/time">

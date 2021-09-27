@@ -1,11 +1,16 @@
-import {InputAdornment, TextField} from "@material-ui/core";
-import {Link as LinkIcon} from "@material-ui/icons";
+import {InputAdornment, TextField} from "@mui/material";
+import {Link as LinkIcon} from "@mui/icons-material";
 import React from "react";
 
-const ShareButtonPopoverLink = () => (
+interface Props {
+  path: string;
+}
+
+const ShareButtonPopoverLink = ({path}: Props) => (
   <TextField
+    color="success"
     label="Click to Copy!"
-    value="https://www.bdo.ninja/cooking/time"
+    value={`https://bdo.ninja${path}`}
     onFocus={(e) => {
       e.target.select();
       document.execCommand("copy");

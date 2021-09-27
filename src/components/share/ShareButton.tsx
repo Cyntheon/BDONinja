@@ -1,14 +1,18 @@
-import {IconButton, Tooltip} from "@material-ui/core";
-import {Share} from "@material-ui/icons";
-import React, {useState} from "react";
-import ShareButtonPopover from "modules/home/share/ShareButtonPopover";
+import {IconButton, Tooltip} from "@mui/material";
+import {Share} from "@mui/icons-material";
+import {MouseEvent, useState} from "react";
+import ShareButtonPopover from "components/share/ShareButtonPopover";
 
-const ShareButton = () => {
+interface Props {
+  path: string;
+}
+
+const ShareButton = ({path}: Props) => {
   const [anchorElement, setAnchorElement] = useState<HTMLButtonElement | null>(
     null
   );
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorElement(event.currentTarget);
   };
 
@@ -24,6 +28,7 @@ const ShareButton = () => {
         </IconButton>
       </Tooltip>
       <ShareButtonPopover
+        path={path}
         anchorElement={anchorElement}
         handleClose={handleClose}
       />

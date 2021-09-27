@@ -1,6 +1,6 @@
 import React from "react";
 import NavCard from "modules/home/navCard/NavCard";
-import PageWrapper from "modules/app/PageWrapper";
+import PageWrapper from "app/page/PageWrapper";
 
 const Index = () => (
   <PageWrapper path="/">

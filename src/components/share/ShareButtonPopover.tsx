@@ -1,13 +1,14 @@
-import {Card, CardContent, Popover} from "@material-ui/core";
+import {Card, CardContent, Popover} from "@mui/material";
 import React from "react";
-import ShareButtonPopoverLink from "modules/home/share/ShareButtonPopoverLink";
+import ShareButtonPopoverLink from "components/share/ShareButtonPopoverLink";
 
 interface Props {
+  path: string;
   anchorElement: HTMLButtonElement | null;
   handleClose: () => void;
 }
 
-const ShareButtonPopover = ({anchorElement, handleClose}: Props) => {
+const ShareButtonPopover = ({path, anchorElement, handleClose}: Props) => {
   return (
     <Popover
       open={!!anchorElement}
@@ -24,7 +25,7 @@ const ShareButtonPopover = ({anchorElement, handleClose}: Props) => {
     >
       <Card>
         <CardContent>
-          <ShareButtonPopoverLink />
+          <ShareButtonPopoverLink path={path} />
         </CardContent>
       </Card>
     </Popover>

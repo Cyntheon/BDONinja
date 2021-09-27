@@ -6,7 +6,7 @@ import {objectMap, objectReduce, objectTrim} from "utils/objectUtils";
 import {roundToNthDecimalPlace} from "utils/numberUtils";
 import isNumber from "utils/isNumber";
 import isObject from "utils/isObject";
-import PageSubHeading from "components/heading/PageSubHeading";
+import PageSubHeading from "app/page/PageSubHeading";
 import Highlight from "components/Highlight";
 import CookingTimeForm from "modules/cooking/time/form/CookingTimeForm";
 

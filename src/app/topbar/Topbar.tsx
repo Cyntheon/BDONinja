@@ -1,5 +1,5 @@
-import {AppBar, IconButton, Toolbar} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import {AppBar, IconButton, Toolbar} from "@mui/material";
+import {Menu} from "@mui/icons-material";
 import {css} from "@emotion/react";
 
 interface Props {
@@ -21,7 +21,7 @@ const Topbar = ({toggleDrawerOpen}: Props) => {
         `}
       >
         <IconButton onClick={toggleDrawerOpen}>
-          <MenuIcon />
+          <Menu />
         </IconButton>
       </Toolbar>
     </AppBar>

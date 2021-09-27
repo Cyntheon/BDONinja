@@ -1,4 +1,5 @@
 import {NextSeo} from "next-seo";
+import {appMeta} from "app/meta";
 
 interface Props {
   path: string;
@@ -7,7 +8,7 @@ interface Props {
 }
 
 const PageSeo = ({path, title, description}: Props) => {
-  const url = `https://www.bdo.ninja${path}`;
+  const url = appMeta.baseUrl ? `${appMeta.baseUrl}${path}` : undefined;
 
   return (
     <NextSeo

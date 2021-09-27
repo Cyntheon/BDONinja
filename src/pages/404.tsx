@@ -1,13 +1,13 @@
-import {getPageMeta} from "modules/app/appPaths";
+import PageHeading from "app/page/PageHeading";
+import PageWrapper from "app/page/PageWrapper";
+import React from "react";
 
 const ErrorPage = () => {
   return (
-    <div>
-      <p>Error!</p>
-    </div>
+    <PageWrapper path="/404">
+      <PageHeading>Sorry! There seems to be an error.</PageHeading>
+    </PageWrapper>
   );
 };
-
-export const getStaticProps = getPageMeta("/404");
 
 export default ErrorPage;

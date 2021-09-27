@@ -1,4 +1,4 @@
-import {Checkbox, FormControlLabel} from "@material-ui/core";
+import {Checkbox, FormControlLabel} from "@mui/material";
 import {CookTimeMod} from "modules/cooking/time/cookingTimeMods";
 import React from "react";
 
@@ -21,7 +21,9 @@ const CookingTimeCheckbox = ({
         <Checkbox
           color="primary"
           checked={getChecked(name as CookTimeMod)}
-          onChange={() => toggleChecked(name as CookTimeMod)}
+          onChange={() => {
+            toggleChecked(name as CookTimeMod);
+          }}
         />
       }
       label={`${name} (${value} sec)`}

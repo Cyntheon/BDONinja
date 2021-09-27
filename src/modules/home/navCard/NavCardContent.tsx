@@ -1,7 +1,7 @@
-import {CardContent, Icon as MuiIcon, Typography} from "@material-ui/core";
+import {CardContent, Icon as MuiIcon, Typography} from "@mui/material";
 import {css} from "@emotion/react";
 import React from "react";
-import {pageMetas} from "modules/app/appPaths";
+import {pageMetas} from "app/page/pageMetas";
 
 interface Props {
   path: string;
@@ -13,7 +13,7 @@ const NavCardContent = ({path}: Props) => {
   return (
     <CardContent>
       <Typography variant="h4" component="h2">
-        {Icon ? (
+        {Icon && (
           <MuiIcon
             css={css`
               margin-right: 8px;
@@ -21,7 +21,7 @@ const NavCardContent = ({path}: Props) => {
           >
             <Icon color="primary" />
           </MuiIcon>
-        ) : null}
+        )}
         {title}
       </Typography>
       <Typography>{description}</Typography>
