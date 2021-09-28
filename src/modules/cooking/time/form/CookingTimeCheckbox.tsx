@@ -26,7 +26,7 @@ const CookingTimeCheckbox = ({
           }}
         />
       }
-      label={`${name} (${value} sec)`}
+      label={`${name} (${value > 0 ? "+" : ""}${value} sec)`}
       key={name}
     />
   );

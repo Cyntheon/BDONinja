@@ -31,7 +31,7 @@ const CookingTimeDropdown = ({
       >
         {Object.entries(categoryValues).map(([name, value]) => (
           <MenuItem key={name} value={name}>
-            {`${name} (${value} sec)`}
+            {`${name} (${value > 0 ? "+" : ""}${value} sec)`}
           </MenuItem>
         ))}
       </Select>
