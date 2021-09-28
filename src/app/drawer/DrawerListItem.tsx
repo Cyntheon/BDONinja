@@ -1,10 +1,10 @@
 import {ListItem, ListItemIcon, ListItemText, Typography} from "@mui/material";
 import {createElement} from "react";
 import Link from "next/link";
-import {pageMetas} from "app/page/pageMetas";
+import {pageMetas, PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
   active: boolean;
 }
 

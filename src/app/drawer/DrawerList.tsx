@@ -1,13 +1,14 @@
 import {List} from "@mui/material";
 import {useRouter} from "next/router";
 import DrawerListItem from "app/drawer/DrawerListItem";
+import {PagePath} from "app/page/pageMetas";
 
-const paths = ["/", "/brackets", "/cooking/time"];
+const paths: PagePath[] = ["/", "/brackets", "/cooking/time"];
 
 const DrawerList = () => {
   const router = useRouter();
 
-  const isActive = (path: string) => {
+  const isActive = (path: PagePath) => {
     return router.pathname === path;
   };
 
