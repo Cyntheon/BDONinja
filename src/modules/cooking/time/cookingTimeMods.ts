@@ -32,9 +32,13 @@ const cookingTimeMods: {
     ["Serendia Traditional Cooking Utensil"]: +6,
     ["Calpheon Traditional Cooking Utensil"]: +7
   },
+  ["Food"]: {
+    ["Teff Sandwich"]: -0.5,
+    ["Spicy Teff Sandwich"]: -0.5,
+    ["Simple Cron Meal"]: -0.6
+  },
   ["Canape Outfit"]: -2,
-  ["Verdure Draught"]: -1,
-  ["Simple Cron Meal"]: -0.6
+  ["Verdure Draught"]: -1
 };
 
 export type CookTimeMod = keyof typeof cookingTimeMods;
