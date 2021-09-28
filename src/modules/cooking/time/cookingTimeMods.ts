@@ -31,6 +31,7 @@ const cookingTimeMods: {
     ["Calpheon Traditional Cooking Utensil"]: +7
   },
   ["Canape Outfit"]: -2,
+  ["Verdure Draught"]: -1,
   ["Simple Cron Meal"]: -0.6
 };
 
