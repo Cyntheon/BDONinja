@@ -1,9 +1,9 @@
 import {ReactNode} from "react";
 import PageSeo from "app/page/PageSeo";
-import {pageMetas} from "app/page/pageMetas";
+import {pageMetas, PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
   children: ReactNode;
 }
 

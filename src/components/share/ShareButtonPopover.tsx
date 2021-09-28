@@ -1,9 +1,10 @@
 import {Card, CardContent, Popover} from "@mui/material";
 import React from "react";
 import ShareButtonPopoverLink from "components/share/ShareButtonPopoverLink";
+import {PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
   anchorElement: HTMLButtonElement | null;
   handleClose: () => void;
 }

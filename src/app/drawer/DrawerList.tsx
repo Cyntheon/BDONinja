@@ -2,7 +2,7 @@ import {List} from "@mui/material";
 import {useRouter} from "next/router";
 import DrawerListItem from "app/drawer/DrawerListItem";
 
-const paths = ["/", "/cooking/time"];
+const paths = ["/", "/brackets", "/cooking/time"];
 
 const DrawerList = () => {
   const router = useRouter();

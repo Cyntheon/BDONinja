@@ -1,10 +1,10 @@
 import {CardContent, Icon as MuiIcon, Typography} from "@mui/material";
 import {css} from "@emotion/react";
 import React from "react";
-import {pageMetas} from "app/page/pageMetas";
+import {pageMetas, PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
 }
 
 const NavCardContent = ({path}: Props) => {

@@ -2,9 +2,10 @@ import {IconButton, Tooltip} from "@mui/material";
 import {Share} from "@mui/icons-material";
 import {MouseEvent, useState} from "react";
 import ShareButtonPopover from "components/share/ShareButtonPopover";
+import {PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
 }
 
 const ShareButton = ({path}: Props) => {

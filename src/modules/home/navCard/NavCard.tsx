@@ -2,9 +2,10 @@ import {CardActionArea, CardActions, Paper} from "@mui/material";
 import ShareButton from "components/share/ShareButton";
 import NavCardContent from "modules/home/navCard/NavCardContent";
 import Link from "components/Link";
+import {PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
 }
 
 const NavCard = ({path}: Props) => {

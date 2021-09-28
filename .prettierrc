@@ -4,6 +4,7 @@
   "endOfLine": "lf",
   "jsxBracketSameLine": false,
   "parser": "typescript",
+  "printWidth": 80,
   "quoteProps": "as-needed",
   "semi": true,
   "singleQuote": false,

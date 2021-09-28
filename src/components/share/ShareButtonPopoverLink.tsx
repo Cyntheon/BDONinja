@@ -1,9 +1,10 @@
 import {InputAdornment, TextField} from "@mui/material";
 import {Link as LinkIcon} from "@mui/icons-material";
 import React from "react";
+import {PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
 }
 
 const ShareButtonPopoverLink = ({path}: Props) => (
