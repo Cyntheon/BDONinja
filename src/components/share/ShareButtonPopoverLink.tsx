@@ -11,7 +11,7 @@ const ShareButtonPopoverLink = ({path}: Props) => (
   <TextField
     color="success"
     label="Click to Copy!"
-    value={`https://bdo.ninja${path}`}
+    value={`https://www.bdo.ninja${path}`}
     onFocus={(e) => {
       e.target.select();
       document.execCommand("copy");
