@@ -1,5 +1,4 @@
 import {
-  Paper,
   Table,
   TableBody,
   TableCell,
@@ -9,7 +8,8 @@ import {
 } from "@mui/material";
 import {roundToNthDecimalPlace} from "utils/numberUtils";
 import {css} from "@emotion/react";
-import theme from "app/theme";
+import rowStyles from "modules/brackets/rowStyles";
+import ArticlePaper from "components/ArticlePaper";
 
 interface BasicRow {
   min: number;
@@ -127,7 +127,7 @@ const rows = basicRows.map(
 
 const ApBrackets = () => (
   <TableContainer
-    component={Paper}
+    component={ArticlePaper}
     css={css`
       &.MuiPaper-root {
         max-width: 600px;
@@ -154,23 +154,7 @@ const ApBrackets = () => (
             additionalBonusAp,
             bonusPerSheetIncrease
           }) => (
-            <TableRow
-              key={min}
-              css={
-                important
-                  ? veryImportant
-                    ? css`
-                        &.MuiTableRow-root > * {
-                          color: ${theme.palette.success.dark}
-                      `
-                    : css`
-                        &.MuiTableRow-root > * {
-                          color: ${theme.palette.success.main};
-                        }
-                      `
-                  : false
-              }
-            >
+            <TableRow key={min} css={rowStyles(important, veryImportant)}>
               <TableCell>{max ? `${min} - ${max}` : `${min}+`}</TableCell>
               <TableCell>{bonusAp}</TableCell>
               <TableCell>{additionalBonusAp}</TableCell>

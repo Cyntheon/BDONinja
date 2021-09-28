@@ -1,14 +1,15 @@
 import {CardContent, Paper} from "@mui/material";
 import CookingTimeMain from "modules/cooking/time/CookingTimeMain";
 import PageWrapper from "app/page/PageWrapper";
+import ArticlePaper from "components/ArticlePaper";
 
 const CookingTimeCalculator = () => (
   <PageWrapper path="/cooking/time">
-    <Paper elevation={3}>
+    <ArticlePaper>
       <CardContent>
         <CookingTimeMain />
       </CardContent>
-    </Paper>
+    </ArticlePaper>
   </PageWrapper>
 );
 
