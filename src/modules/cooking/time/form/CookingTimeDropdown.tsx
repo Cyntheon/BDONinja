@@ -1,4 +1,4 @@
-import {FormControl, InputLabel, MenuItem, Select} from "@material-ui/core";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import React from "react";
 import {CookTimeMod} from "modules/cooking/time/cookingTimeMods";
 
@@ -25,13 +25,13 @@ const CookingTimeDropdown = ({
         value={getDropdownValue(categoryName)}
         color="primary"
         onChange={(e) => {
-          setDropdownValue(categoryName, e.target.value as string);
+          setDropdownValue(categoryName, e.target.value);
         }}
         name={categoryName}
       >
         {Object.entries(categoryValues).map(([name, value]) => (
           <MenuItem key={name} value={name}>
-            {`${name} (${value} sec)`}
+            {`${name} (${value > 0 ? "+" : ""}${value} sec)`}
           </MenuItem>
         ))}
       </Select>

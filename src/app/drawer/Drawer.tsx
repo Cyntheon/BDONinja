@@ -1,6 +1,6 @@
-import {SwipeableDrawer} from "@material-ui/core";
+import {SwipeableDrawer} from "@mui/material";
 import {Dispatch, SetStateAction} from "react";
-import DrawerList from "modules/app/drawer/DrawerList";
+import DrawerList from "app/drawer/DrawerList";
 import {css} from "@emotion/react";
 
 interface Props {
@@ -11,8 +11,12 @@ interface Props {
 const Drawer = ({drawerOpen, setDrawerOpen}: Props) => {
   return (
     <SwipeableDrawer
-      onClose={() => setDrawerOpen(false)}
-      onOpen={() => setDrawerOpen(true)}
+      onClose={() => {
+        setDrawerOpen(false);
+      }}
+      onOpen={() => {
+        setDrawerOpen(true);
+      }}
       open={drawerOpen}
       css={css`
         &.MuiDrawer-paper {

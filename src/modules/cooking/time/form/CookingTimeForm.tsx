@@ -5,7 +5,8 @@ import isNumber from "utils/isNumber";
 import React, {memo} from "react";
 import CookingTimeCheckbox from "modules/cooking/time/form/CookingTimeCheckbox";
 import CookingTimeDropdown from "modules/cooking/time/form/CookingTimeDropdown";
-import {FormGroup} from "@material-ui/core";
+import {FormGroup} from "@mui/material";
+import {css} from "@emotion/react";
 
 interface Props {
   getChecked: (key: CookTimeMod) => boolean;
@@ -21,7 +22,13 @@ const CookingTimeForm = ({
   setDropdownValue
 }: Props) => {
   return (
-    <FormGroup>
+    <FormGroup
+      css={css`
+        &.MuiFormGroup-root {
+          gap: 1rem;
+        }
+      `}
+    >
       {Object.entries(cookingTimeMods).map(([name, value]) => {
         return isNumber(value) ? (
           <CookingTimeCheckbox

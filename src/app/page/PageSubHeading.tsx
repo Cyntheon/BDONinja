@@ -1,20 +1,20 @@
 import {css} from "@emotion/react";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import {ReactNode} from "react";
 
 interface Props {
   children: ReactNode;
 }
 
-const PageHeading = ({children}: Props) => {
+const PageSubHeading = ({children}: Props) => {
   return (
     <Typography
-      variant="h3"
-      component="h1"
+      variant="h4"
+      component="h2"
       css={css`
         &.MuiTypography-root {
           text-align: center;
-          margin-bottom: 32px;
+          margin-bottom: 8px;
         }
       `}
     >
@@ -23,4 +23,4 @@ const PageHeading = ({children}: Props) => {
   );
 };
 
-export default PageHeading;
+export default PageSubHeading;

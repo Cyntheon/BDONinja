@@ -24,14 +24,21 @@ const cookingTimeMods: {
   },
   ["Utensil"]: {
     ["None"]: 0,
+    ["Cooking Utensil"]: 0,
     ["Intermediate Cooking Utensil"]: 0,
     ["Advanced Cooking Utensil"]: -1,
     ["Supreme Cooking Utensil"]: -1,
+    ["Balenos Traditional Cooking Utensil"]: +5,
     ["Serendia Traditional Cooking Utensil"]: +6,
     ["Calpheon Traditional Cooking Utensil"]: +7
   },
+  ["Food"]: {
+    ["Teff Sandwich"]: -0.5,
+    ["Spicy Teff Sandwich"]: -0.5,
+    ["Simple Cron Meal"]: -0.6
+  },
   ["Canape Outfit"]: -2,
-  ["Simple Cron Meal"]: -0.6
+  ["Verdure Draught"]: -1
 };
 
 export type CookTimeMod = keyof typeof cookingTimeMods;

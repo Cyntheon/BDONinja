@@ -1,12 +1,11 @@
-import {Container} from "@material-ui/core";
-import Topbar from "modules/app/topbar/Topbar";
+import {Container} from "@mui/material";
+import Topbar from "app/topbar/Topbar";
 import {ReactNode} from "react";
-import Drawer from "modules/app/drawer/Drawer";
+import Drawer from "app/drawer/Drawer";
 import {css} from "@emotion/react";
 import reset from "styles/reset";
-import font from "styles/font";
-import AppStyles from "modules/app/AppStyles";
-import AppSeo from "modules/app/AppSeo";
+import AppStyles from "app/AppStyles";
+import AppSeo from "app/AppSeo";
 import useToggle from "utils/useToggle";
 
 interface Props {
@@ -17,7 +16,7 @@ const AppMain = ({children}: Props) => {
   const [drawerOpen, toggleDrawerOpen, setDrawerOpen] = useToggle();
 
   return (
-    <AppStyles globals={[reset, font]}>
+    <AppStyles globals={[reset]}>
       <Drawer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
       <Topbar toggleDrawerOpen={toggleDrawerOpen} />
       <Container

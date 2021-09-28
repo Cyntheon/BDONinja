@@ -1,23 +1,23 @@
-import {CardActionArea, CardActions, Paper} from "@material-ui/core";
-import React from "react";
-import ShareButton from "modules/home/share/ShareButton";
+import {CardActionArea, CardActions, Paper} from "@mui/material";
+import ShareButton from "components/share/ShareButton";
 import NavCardContent from "modules/home/navCard/NavCardContent";
 import Link from "components/Link";
+import {PagePath} from "app/page/pageMetas";
 
 interface Props {
-  path: string;
+  path: PagePath;
 }
 
 const NavCard = ({path}: Props) => {
   return (
     <Paper elevation={3}>
-      <Link href={path}>
+      <Link href={path} underline="none">
         <CardActionArea>
           <NavCardContent path={path} />
         </CardActionArea>
       </Link>
       <CardActions>
-        <ShareButton />
+        <ShareButton path={path} />
       </CardActions>
     </Paper>
   );

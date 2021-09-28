@@ -1,30 +1,30 @@
 import React from "react";
-import theme from "styles/theme";
 import {DefaultSeo} from "next-seo";
-
-interface Props {
-  path: string;
-  title: string;
-  description?: string;
-}
+import {appMeta} from "app/meta";
+import theme from "app/theme";
 
 const AppSeo = () => {
+  const {title, description, baseUrl, author} = appMeta;
   return (
     <DefaultSeo
       title={undefined}
-      titleTemplate="%s | BDO Ninja"
-      defaultTitle="BDO Ninja"
-      description="Calculators and helpers for Black Desert Online (BDO)"
-      canonical="https://www.bdo.ninja/"
+      titleTemplate={`%s | ${title}`}
+      defaultTitle={title}
+      description={description}
+      canonical={baseUrl}
       openGraph={{
-        title: "BDO Ninja",
-        description: "Calculators and helpers for Black Desert Online (BDO)",
+        title,
+        description,
         type: "website",
         locale: "en_US",
-        url: "https://www.bdo.ninja/",
-        site_name: "BDO Ninja"
+        url: baseUrl,
+        site_name: title
       }}
       additionalMetaTags={[
+        {
+          name: "author",
+          content: author
+        },
         {
           httpEquiv: "x-ua-compatible",
           content: "IE=edge"
@@ -34,7 +34,7 @@ const AppSeo = () => {
           content: "width=device-width,initial-scale=1"
         },
         {
-          name: "theme-color",
+          name: "index-color",
           content: theme.palette.primary.main
         },
         {
