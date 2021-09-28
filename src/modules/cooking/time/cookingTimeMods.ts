@@ -24,6 +24,7 @@ const cookingTimeMods: {
   },
   ["Utensil"]: {
     ["None"]: 0,
+    ["Cooking Utensil"]: 0,
     ["Intermediate Cooking Utensil"]: 0,
     ["Advanced Cooking Utensil"]: -1,
     ["Supreme Cooking Utensil"]: -1,
