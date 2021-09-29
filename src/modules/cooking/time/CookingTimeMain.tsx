@@ -20,7 +20,7 @@ const baseCheckboxState = objectTrim(
 const baseDropdownState = objectTrim(
   objectMap(
     cookingTimeMods,
-    (value) => (isObject(value) ? "" : undefined) as string
+    (value) => (isObject(value) ? null : undefined) as string | null
   )
 );
 
@@ -29,7 +29,7 @@ const CookingTimeMain = () => {
     useState<{[s in CookTimeMod]: boolean}>(baseCheckboxState);
 
   const [dropdownState, setDropdownState] =
-    useState<{[s in CookTimeMod]: string}>(baseDropdownState);
+    useState<{[s in CookTimeMod]: string | null}>(baseDropdownState);
 
   const getChecked = useCallback(
     (key: CookTimeMod) => checkboxState[key],
@@ -52,7 +52,7 @@ const CookingTimeMain = () => {
   );
 
   const setDropdownValue = useCallback(
-    (key: CookTimeMod, value: string) => {
+    (key: CookTimeMod, value: string | null) => {
       setDropdownState((oldState) => ({
         ...oldState,
         [key]: value
@@ -73,9 +73,16 @@ const CookingTimeMain = () => {
 
     const dropdownTimeMod = objectReduce(
       dropdownState,
-      (accumulator, value, key) =>
-        accumulator +
-        ((cookingTimeMods[key] as {[k: string]: number})[value] || 0),
+      (accumulator, value, key) => {
+        if (!value) {
+          return accumulator;
+        }
+
+        return (
+          accumulator +
+          ((cookingTimeMods[key] as {[k: string]: number})[value] || 0)
+        );
+      },
       0
     );
 
