@@ -126,14 +126,7 @@ const rows = basicRows.map(
 );
 
 const ApBrackets = () => (
-  <TableContainer
-    component={ArticlePaper}
-    css={css`
-      &.MuiPaper-root {
-        max-width: 600px;
-      }
-    `}
-  >
+  <TableContainer component={ArticlePaper}>
     <Table>
       <TableHead>
         <TableRow>
@@ -155,7 +148,9 @@ const ApBrackets = () => (
             bonusPerSheetIncrease
           }) => (
             <TableRow key={min} css={rowStyles(important, veryImportant)}>
-              <TableCell>{max ? `${min} - ${max}` : `${min}+`}</TableCell>
+              <TableCell>
+                {max ? `${min} - ${max} (${max - min + 1})` : `${min}+`}
+              </TableCell>
               <TableCell>{bonusAp}</TableCell>
               <TableCell>{additionalBonusAp}</TableCell>
               <TableCell>
