@@ -35,7 +35,7 @@ const cookingTimeMods: {
   ["Food"]: {
     ["Teff Sandwich"]: -0.5,
     ["Spicy Teff Sandwich"]: -0.5,
-    ["Simple Cron Meal"]: -0.6
+    ["Seafood Cron Meal"]: -0.6
   },
   ["Canape Outfit"]: -2,
   ["Verdure Draught"]: -1
