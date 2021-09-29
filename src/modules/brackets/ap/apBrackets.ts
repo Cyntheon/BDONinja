@@ -1,14 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow
-} from "@mui/material";
 import {roundToNthDecimalPlace} from "utils/numberUtils";
-import rowStyles from "modules/brackets/rowStyles";
-import ArticlePaper from "components/ArticlePaper";
 
 interface BasicRow {
   min: number;
@@ -104,10 +94,20 @@ const getBonusPerSheetIncrease = (
 
   const sheetApIncrease = min - lastMin;
 
-  return additionalBonusAp / sheetApIncrease;
+  return roundToNthDecimalPlace(additionalBonusAp / sheetApIncrease, 2);
 };
 
-const rows = basicRows.map(
+export interface ApBracket {
+  min: number;
+  bonusAp: number;
+  important: boolean;
+  veryImportant: boolean;
+  max: number | null;
+  additionalBonusAp: number;
+  bonusPerSheetIncrease: number;
+}
+
+const apBrackets: ApBracket[] = basicRows.map(
   ({min, bonusAp, important, veryImportant}, index) => ({
     min,
     bonusAp,
@@ -124,43 +124,4 @@ const rows = basicRows.map(
   })
 );
 
-const ApBrackets = () => (
-  <TableContainer component={ArticlePaper}>
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Sheet AP</TableCell>
-          <TableCell>Bonus AP</TableCell>
-          <TableCell>ΔBonus</TableCell>
-          <TableCell>ΔBonus / ΔSheet</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {rows.map(
-          ({
-            min,
-            max,
-            bonusAp,
-            important,
-            veryImportant,
-            additionalBonusAp,
-            bonusPerSheetIncrease
-          }) => (
-            <TableRow key={min} css={rowStyles(important, veryImportant)}>
-              <TableCell>
-                {max ? `${min} - ${max} (${max - min + 1})` : `${min}+`}
-              </TableCell>
-              <TableCell>{bonusAp}</TableCell>
-              <TableCell>{additionalBonusAp}</TableCell>
-              <TableCell>
-                {roundToNthDecimalPlace(bonusPerSheetIncrease, 2)}
-              </TableCell>
-            </TableRow>
-          )
-        )}
-      </TableBody>
-    </Table>
-  </TableContainer>
-);
-
-export default ApBrackets;
+export default apBrackets;

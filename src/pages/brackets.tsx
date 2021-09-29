@@ -1,8 +1,9 @@
 import PageWrapper from "app/page/PageWrapper";
-import ApBrackets from "modules/brackets/ApBrackets";
-import DpBrackets from "modules/brackets/DpBrackets";
+import ApBracketsTable from "modules/brackets/ap/ApBracketsTable";
+import DpBrackets from "modules/brackets/dp/DpBrackets";
 import {Grid} from "@mui/material";
 import {css} from "@emotion/react";
+import ApBracketsGraph from "modules/brackets/ap/ApBracketsGraph";
 
 const Brackets = () => {
   return (
@@ -17,10 +18,13 @@ const Brackets = () => {
           }
         `}
       >
-        <Grid item>
-          <ApBrackets />
+        <Grid item xs={12} lg={6}>
+          <ApBracketsTable />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} lg={6}>
+          <ApBracketsGraph />
+        </Grid>
+        <Grid item xs={12} lg={6}>
           <DpBrackets />
         </Grid>
       </Grid>
