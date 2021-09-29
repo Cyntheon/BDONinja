@@ -11,8 +11,8 @@ import {css} from "@emotion/react";
 interface Props {
   getChecked: (key: CookTimeMod) => boolean;
   toggleChecked: (key: CookTimeMod) => void;
-  getDropdownValue: (key: CookTimeMod) => string;
-  setDropdownValue: (key: CookTimeMod, value: string) => void;
+  getDropdownValue: (key: CookTimeMod) => string | null;
+  setDropdownValue: (key: CookTimeMod, value: string | null) => void;
 }
 
 const CookingTimeForm = ({

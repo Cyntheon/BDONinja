@@ -1,5 +1,6 @@
 import theme from "app/theme";
-import {CssBaseline, ThemeProvider} from "@mui/material";
+import {CssBaseline} from "@mui/material";
+import {ThemeProvider} from "@mui/material/styles";
 import {CacheProvider, Global, SerializedStyles} from "@emotion/react";
 import {ReactNode, useMemo} from "react";
 import createEmotionCache from "utils/createEmotionCache";
@@ -18,13 +19,6 @@ const AppStyles = ({
   emotionCache = clientSideEmotionCache,
   children
 }: Props) => {
-  // useEffect(() => {
-  //   const jssStyles = document.querySelector("#jss-server-side");
-  //   if (jssStyles) {
-  //     jssStyles.parentElement?.removeChild(jssStyles);
-  //   }
-  // }, []);
-
   const globalStyles = useMemo(() => {
     return (globals || []).map((style) => (
       <Global styles={style} key={style.name} />

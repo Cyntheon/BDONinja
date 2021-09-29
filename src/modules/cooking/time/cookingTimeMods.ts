@@ -2,7 +2,6 @@ const cookingTimeMods: {
   [k: string]: number | {[k: string]: number};
 } = {
   ["Clothes"]: {
-    ["None"]: 0,
     ["Silver Embroidered Cook's Clothes"]: -1,
     ["+1 Silver Embroidered Cook's Clothes"]: -2,
     ["+2 Silver Embroidered Cook's Clothes"]: -3,
@@ -11,7 +10,6 @@ const cookingTimeMods: {
     ["+5 Silver Embroidered Cook's Clothes"]: -7
   },
   ["Alchemy Stone"]: {
-    ["None"]: 0,
     ["Imperfect Alchemy Stone of Life"]: -0.5,
     ["Rough Alchemy Stone of Life"]: -0.7,
     ["Polished Alchemy Stone of Life"]: -0.9,
@@ -23,7 +21,6 @@ const cookingTimeMods: {
     ["Life Spirit Stone"]: -1.1
   },
   ["Utensil"]: {
-    ["None"]: 0,
     ["Cooking Utensil"]: 0,
     ["Intermediate Cooking Utensil"]: 0,
     ["Advanced Cooking Utensil"]: -1,

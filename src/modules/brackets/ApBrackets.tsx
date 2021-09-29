@@ -7,7 +7,6 @@ import {
   TableRow
 } from "@mui/material";
 import {roundToNthDecimalPlace} from "utils/numberUtils";
-import {css} from "@emotion/react";
 import rowStyles from "modules/brackets/rowStyles";
 import ArticlePaper from "components/ArticlePaper";
 
